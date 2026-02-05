@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pour ma Valentine</title>
+    <style>
+        body {
+            background-color: #000000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            min-height: 100hv;
+        }
+
+        .container {
+            background: rgb(223, 147, 147);
+            padding: 40%;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        h1 { color: #d63384; font-size: 2.5rem;}
+        p { color: #555; line-height: 1.6; }
+
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        button {
+            padding: 10px 25px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        #noBtn {
+            background-color: #adb5bd;
+            color: white;
+            position: relative;
+        }
+
+        .heart {
+            color: #ff4d6d;
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+        .ma-photo {
+            width: 100%;       /* Elle prendra toute la largeur du container */
+            max-width: 300px;  /* Mais elle ne dépassera jamais 300 pixels */
+            border-radius: 15px; /* Pour arrondir les coins et faire plus joli */
+            margin: 20px 0;    /* Pour laisser un peu d'espace en haut et en bas */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Un petit effet d'ombre */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="heart">❤️</div>
+        <img src="Famille.jpeg" alt="Nous deux" class="ma-photo">
+        <h1 id="question">Veux-tu être ma Valentine ?</h1>
+        <p id="message">Chaque moment passé avec toi est un cadeau. J'aimerais beaucoup passer cette journée spéciale à tes côtés...</p>
+        
+        <div class="buttons">
+            <button id="yesBtn" onclick="celebrate()">OUI !</button>
+            <button id="noBtn" onmouseover="moveButton()">Non</button>
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour faire fuir le bouton "Non" (la petite touche d'humour)
+        function moveButton() {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            const noBtn = document.getElementById('noBtn');
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+
+        // Fonction quand elle clique sur OUI
+        function celebrate() {
+            document.getElementById('question').innerHTML = "C'est merveilleux ! 🌹";
+            document.getElementById('message').innerHTML = "J'ai trop hâte. Prépare-toi pour une soirée inoubliable !";
+            document.querySelector('.buttons').style.display = 'none';
+            document.querySelector('.heart').innerHTML = "🥰";
+        }
+    </script>
+</body>
+</html>
